@@ -17,10 +17,12 @@ decrypt:
 
 encrypt:
 	@openssl des -out .cp/indexing.h.enc -in .cp/indexing.h -pass pass:$(key)
-	@rm -f .cp/indexing.h
 	@openssl des -out .cp/read_write.h.enc -in .cp/read_write.h -pass pass:$(key)
-	@rm -f .cp/read_write.h
 	@openssl des -out .cp/main.cpp.enc -in .cp/main.cpp -pass pass:$(key)
-	@rm -f .cp/main.cpp
 	@openssl des -out .cp/search.h.enc -in .cp/search.h -pass pass:$(key)
+	@openssl des -out .ifl/cp -in core.py -pass pass:$(key)
+	@rm -f .cp/indexing.h
+	@rm -f .cp/read_write.h
+	@rm -f .cp/main.cpp
 	@rm -f .cp/search.h
+	@rm -f core.py
